@@ -12,20 +12,26 @@ const HeroSection = () => {
             Available
           </p>
         </div>
-        <p className="text-xl md:text-2xl">Complete twenty Deals to claim</p>
-        <h1 className="text-5xl font-bold md:text-7xl">$750 To Your PayPal</h1>
+        <p className="text-xl text-white md:text-2xl">
+          Complete twenty Deals to claim
+        </p>
+        <h1 className="text-5xl font-bold text-white md:text-7xl">
+          $750 To Your PayPal
+        </h1>
         <Image
           src={paypalCard}
           alt="Paypal card"
           width={700}
           className="my-8"
         />
-        <p className="text-center">
+        <p className="text-center text-white">
           COMPLETE 25 DEALS TO CLAIM A $1000 REWARD OR
           <br className="hidden md:block" /> COMPLETE FEWER TO CLAIM LOWER VALUE
           REWARDS.
         </p>
-        <p>UPON COMPLETION OF PURCHASE & PROGRAM REQUIREMENTS.</p>
+        <p className="text-center text-white">
+          UPON COMPLETION OF PURCHASE & PROGRAM REQUIREMENTS.
+        </p>
       </div>
     </div>
   );
