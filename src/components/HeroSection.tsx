@@ -13,7 +13,7 @@ const HeroSection = () => {
           </p>
         </div>
         <p className="text-2xl">Complete twenty Deals to claim</p>
-        <h1 className="text-7xl font-bold">$750 To Your PayPal</h1>
+        <h1 className="text-5xl font-bold md:text-7xl">$750 To Your PayPal</h1>
         <Image
           src={paypalCard}
           alt="Paypal card"
