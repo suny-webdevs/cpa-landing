@@ -22,7 +22,8 @@ const HeroSection = () => {
         />
         <p className="text-center">
           COMPLETE 25 DEALS TO CLAIM A $1000 REWARD OR
-          <br /> COMPLETE FEWER TO CLAIM LOWER VALUE REWARDS.
+          <br className="hidden md:block" /> COMPLETE FEWER TO CLAIM LOWER VALUE
+          REWARDS.
         </p>
         <p>UPON COMPLETION OF PURCHASE & PROGRAM REQUIREMENTS.</p>
       </div>
