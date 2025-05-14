@@ -1,7 +1,7 @@
 const PricingCards = () => {
   return (
     // main box
-    <div className="grid w-[600px] grid-cols-3 gap-1 rounded-3xl bg-slate-900 px-10 py-14 md:gap-10">
+    <div className="grid w-[600px] grid-cols-3 gap-1 rounded-3xl bg-slate-900 px-5 py-7 md:gap-10 md:px-10 md:py-14">
       {/* box 1 */}
       <div className="flex flex-col">
         <h3 className="text-center text-xl font-semibold">Level</h3>
