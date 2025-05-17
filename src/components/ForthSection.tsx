@@ -1,9 +1,10 @@
 import Image from "next/image";
 import box from "../../public/subscription.svg";
+import Footer from "./shared/Footer";
 
 const ForthSection = () => {
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center gap-10 bg-green-100 px-2 text-center md:px-0">
+    <div className="relative flex min-h-screen w-full flex-col items-center justify-center gap-10 bg-green-100 px-2 text-center md:px-0">
       <div className="mb-2">
         <Image src={box} alt="box icon" width={200} />
       </div>
@@ -25,6 +26,7 @@ const ForthSection = () => {
       >
         Get a Quick Start
       </button>
+      <Footer />
     </div>
   );
 };
