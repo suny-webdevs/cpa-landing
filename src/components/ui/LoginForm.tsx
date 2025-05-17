@@ -1,5 +1,4 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
@@ -15,14 +14,11 @@ const LoginForm = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    const payload = { email, password };
-    console.log({ payload });
-
     try {
       const res = await fetch(`${process.env.NEXT_API_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await res.json();
