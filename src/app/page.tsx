@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <div className="max-w-screen">
       <HeroSection />
       {/* <FirstSection /> */}
       <SecondSection />
