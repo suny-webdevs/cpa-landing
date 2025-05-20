@@ -1,19 +1,11 @@
-// utils/decodeToken.ts
-import { jwtDecode } from "jwt-decode";
+// import jwt, { JwtPayload } from "jsonwebtoken";
 
-type JwtPayload = {
-  email: string;
-  name?: string;
-  exp?: number;
-  iat?: number;
-};
+// const decodeToken = (token: string): JwtPayload => {
+//   const decoded = jwt.verify(
+//     token as string,
+//     process.env.JWT_SECRET as string,
+//   ) as JwtPayload;
+//   return decoded;
+// };
 
-export const decodeToken = (token: string): JwtPayload => {
-  try {
-    const decoded = jwtDecode<JwtPayload>(token);
-    return decoded;
-  } catch (err) {
-    console.error("Failed to decode token:", err);
-    throw new Error("Invalid token");
-  }
-};
+// export default decodeToken;

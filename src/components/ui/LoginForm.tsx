@@ -1,4 +1,5 @@
 "use client";
+import { loginUser } from "@/Services/AuthService";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
@@ -10,25 +11,18 @@ const LoginForm = () => {
 
     const toastId = toast.loading("Logging in...");
 
-    const form = e.currentTarget;
-    const email = form.email.value;
-    const password = form.password.value;
-
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-        credentials: "include",
-      });
+      const form = e.currentTarget;
+      const email = form.email.value;
+      const password = form.password.value;
 
-      const data = await res.json();
+      const res = await loginUser({ email, password });
 
-      if (data?.success && data?.data?.token) {
-        toast.success(data?.message, { id: toastId });
+      if (res.success) {
+        toast.success(res?.message, { id: toastId });
         router.push("/dashboard");
       } else {
-        toast.error(data?.message || "Login failed", { id: toastId });
+        toast.error(res.message, { id: toastId });
       }
     } catch (error) {
       console.log(error);
