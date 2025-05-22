@@ -18,6 +18,7 @@ export const createButton = async (payload: TButton) => {
     const data = await res.json();
 
     if (data.success) {
+      await getButtons();
       return data;
     }
 
@@ -36,6 +37,9 @@ export const getButtons = async () => {
         Authorization: `${await getToken("token")}`,
       },
       credentials: "include",
+      next: {
+        revalidate: 5,
+      },
     });
 
     const data = await res.json();
@@ -55,7 +59,7 @@ export const updateButton = async (id: string, payload: Partial<TButton>) => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/api/buttons/${id}`,
       {
-        method: "PUT",
+        method: "PATCH",
         headers: {
           "content-type": "application/json",
           Authorization: `${await getToken("token")}`,
@@ -68,6 +72,7 @@ export const updateButton = async (id: string, payload: Partial<TButton>) => {
     const data = await res.json();
 
     if (data.success) {
+      await getButtons();
       return data;
     }
 
@@ -94,6 +99,7 @@ export const deleteButton = async (id: string) => {
     const data = await res.json();
 
     if (data.success) {
+      await getButtons();
       return data;
     }
 

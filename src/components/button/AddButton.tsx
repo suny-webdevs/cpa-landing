@@ -1,10 +1,12 @@
 "use client";
 
 import { createButton } from "@/Services/ButtonService";
+import { useRouter } from "next/navigation";
 import { IoAddSharp } from "react-icons/io5";
 import { toast } from "sonner";
 
 const AddButton = () => {
+  const router = useRouter();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -14,6 +16,7 @@ const AddButton = () => {
       const res = await createButton({ label, link });
       if (res.success) {
         toast.success(res.message);
+        router.refresh();
         form.reset();
       }
     } catch (error) {
@@ -24,7 +27,10 @@ const AddButton = () => {
   return (
     <div>
       <h2 className="text-4xl font-bold text-black/80">Add Buttons</h2>
-      <form onSubmit={handleSubmit} className="flex items-center gap-4">
+      <form
+        onSubmit={handleSubmit}
+        className="mt-5 flex flex-col gap-4 md:flex-row md:items-center"
+      >
         <input
           type="text"
           name="label"
@@ -39,7 +45,7 @@ const AddButton = () => {
         />
         <button
           type="submit"
-          className="flex cursor-pointer items-center gap-1 rounded-md bg-black/80 px-5 py-2 text-white"
+          className="flex cursor-pointer items-center justify-center gap-1 rounded-md bg-black/80 px-5 py-2 text-white"
         >
           <IoAddSharp className="text-lg" />
           <span className="font-medium text-white">Add button</span>

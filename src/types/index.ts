@@ -20,3 +20,9 @@ export type TButton = {
   label: string;
   link: string;
 };
+
+export type TResponseData = {
+  success: boolean;
+  message: string;
+  data: TButton[];
+};

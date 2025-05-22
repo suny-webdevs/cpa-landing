@@ -12,6 +12,12 @@ export const getToken = async (cookieName: string) => {
   return cookieData;
 };
 
+export const removeToken = async (cookieName: string) => {
+  const cookieStore = await cookies();
+  const cookieData = cookieStore.delete(cookieName);
+  return cookieData;
+};
+
 export const loginUser = async (userData: {
   email: string;
   password: string;
@@ -31,10 +37,9 @@ export const loginUser = async (userData: {
     if (result.success) {
       (await cookies()).set("token", result?.data?.token);
     }
-
     return result;
   } catch (error: any) {
-    return Error(error);
+    throw Error(error);
   }
 };
 
@@ -60,7 +65,7 @@ export const getUserData = async (email: string) => {
 
     return null;
   } catch (error: any) {
-    return Error(error);
+    throw Error(error);
   }
 };
 
@@ -75,9 +80,9 @@ export const getCurrentUser = async () => {
       return userData;
     } else {
       toast.error("Unauthorized access!");
-      return redirect("/");
+      redirect("/");
     }
   } else {
-    return null;
+    redirect("/");
   }
 };

@@ -4,7 +4,7 @@ import money from "../../public/s3-money.png";
 
 const SecondSection = () => {
   return (
-    <div className="relative flex min-h-screen w-full max-w-screen flex-col items-center justify-center gap-10 bg-[#e3ffc3] px-2 text-center md:px-0 lg:px-0">
+    <div className="relative flex min-h-screen w-full max-w-screen flex-col items-center justify-center gap-10 overflow-hidden bg-[#e3ffc3] px-2 text-center md:px-0 lg:px-0">
       <div className="top-50% absolute left-0 z-0 hidden -translate-x-[30rem] transform lg:block">
         <Image src={phone} alt="phone" height={700} />
       </div>
