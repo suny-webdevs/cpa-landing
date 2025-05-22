@@ -14,6 +14,7 @@ import {
 import { getCurrentUser } from "@/Services/AuthService";
 import LogoutButton from "./LogoutButton";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export function AdminDropdown() {
   const [user, setUser] = useState<any>(null);
@@ -40,6 +41,10 @@ export function AdminDropdown() {
             <p className="text-black">{user?.role}</p>
           </div>
         </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          <Link href={"/"}>Home</Link>
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <LogoutButton />

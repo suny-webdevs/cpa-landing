@@ -1,8 +1,17 @@
 import Image from "next/image";
 import phone from "../../public/s3-phone.png";
 import money from "../../public/s3-money.png";
+import Link from "next/link";
+import { getButtons } from "@/Services/ButtonService";
+import { TButton } from "@/types";
 
-const SecondSection = () => {
+const SecondSection = async () => {
+  const data = await getButtons();
+  const buttons = data?.data;
+  const linkOne: string = buttons.filter(
+    (button: TButton) => button.label === "Link 1",
+  )[0]?.link;
+
   return (
     <div className="relative flex min-h-screen w-full max-w-screen flex-col items-center justify-center gap-10 overflow-hidden bg-[#e3ffc3] px-2 text-center md:px-0 lg:px-0">
       <div className="top-50% absolute left-0 z-0 hidden -translate-x-[30rem] transform lg:block">
@@ -26,12 +35,14 @@ const SecondSection = () => {
         date on your <br className="hidden md:block" /> Reward status and Deal
         credits.
       </p>
-      <button
-        type="button"
-        className="cursor-pointer rounded-full bg-blue-500 px-10 py-4 text-3xl text-white"
-      >
-        Get a Quick Start
-      </button>
+      <Link href={`${linkOne}`}>
+        <button
+          type="button"
+          className="cursor-pointer rounded-full bg-blue-500 px-10 py-4 text-3xl text-white"
+        >
+          Get a Quick Start
+        </button>
+      </Link>
       <div className="top-50% absolute right-0 z-0 hidden translate-x-[30rem] transform lg:block">
         <Image src={money} alt="money" height={700} />
       </div>
