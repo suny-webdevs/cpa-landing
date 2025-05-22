@@ -1,14 +1,9 @@
-import { getButtons } from "@/Services/ButtonService";
 import PricingCards from "./shared/PricingCards";
-import { TButton } from "@/types";
 import Link from "next/link";
+import getLink from "@/utils/getLink";
 
 const ThirdSection = async () => {
-  const data = await getButtons();
-  const buttons = data?.data;
-  const linkTwo = buttons.filter(
-    (button: TButton) => button.label === "Link 2",
-  )[0]?.link;
+  const linkTwo = await getLink("Link 2");
 
   return (
     <div className="min-h-screen w-full bg-[url('/s4-bg.jpg')] bg-cover bg-center">

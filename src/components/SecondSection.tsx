@@ -2,15 +2,10 @@ import Image from "next/image";
 import phone from "../../public/s3-phone.png";
 import money from "../../public/s3-money.png";
 import Link from "next/link";
-import { getButtons } from "@/Services/ButtonService";
-import { TButton } from "@/types";
+import getLink from "@/utils/getLink";
 
 const SecondSection = async () => {
-  const data = await getButtons();
-  const buttons = data?.data;
-  const linkOne: string = buttons.filter(
-    (button: TButton) => button.label === "Link 1",
-  )[0]?.link;
+  const linkOne = await getLink("Link 1");
 
   return (
     <div className="relative flex min-h-screen w-full max-w-screen flex-col items-center justify-center gap-10 overflow-hidden bg-[#e3ffc3] px-2 text-center md:px-0 lg:px-0">

@@ -2,17 +2,10 @@ import Image from "next/image";
 import box from "../../public/subscription.svg";
 import Footer from "./shared/Footer";
 import Link from "next/link";
-import { getButtons } from "@/Services/ButtonService";
-import { TButton } from "@/types";
+import getLink from "@/utils/getLink";
 
 const ForthSection = async () => {
-  const data = await getButtons();
-  const buttons = data?.data;
-  const linkThree = buttons.filter(
-    (button: TButton) => button.label === "Link 3",
-  )[0]?.link;
-
-  console.log({ linkThree });
+  const linkThree = await getLink("Link 3");
 
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center justify-center gap-10 bg-green-100 px-2 text-center md:px-0">
